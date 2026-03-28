@@ -1,0 +1,80 @@
+/* =============================================
+   Elevate Marketing – Global Styles
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #1677ff;
+  --color-success: #52c41a;
+  --color-warning: #faad14;
+  --color-danger: #ff4d4f;
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #eaeaea;
+  --color-text: #111111;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-bg);
+  color: var(--color-text);
+  /* Mobile: prevent bounce scrolling at root level */
+  overscroll-behavior: none;
+}
+
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  /* Mobile frame shadow on desktop */
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.12);
+  min-height: 100dvh;
+  background: var(--color-surface);
+}
+
+/* antd-mobile overrides */
+.adm-nav-bar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+  font-size: 16px !important;
+}
+
+.adm-card {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+}
+
+.adm-form-item-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
