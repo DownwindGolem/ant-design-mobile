@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import CalendarPage from './pages/CalendarPage'
 import UploadPage from './pages/UploadPage'
@@ -9,7 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
 
@@ -30,6 +30,6 @@ export default function App() {
 
         <Route path="*" element={<Navigate to="/calendar" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
