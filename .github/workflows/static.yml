@@ -2,12 +2,10 @@ name: Deploy Marketing App to GitHub Pages
 
 on:
   push:
-    branches:
-      - claude/marketing-app-mvp-L85px
-      - master
+    branches: ["master", "claude/marketing-app-mvp-L85px"]
     paths:
-      - 'marketing-app/**'
-
+      - "marketing-app/**"
+      - ".github/workflows/static.yml"
   workflow_dispatch:
 
 permissions:
@@ -16,8 +14,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -41,7 +39,10 @@ jobs:
         working-directory: marketing-app
         run: npm run build
 
-      - name: Upload Pages artifact
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: marketing-app/dist
@@ -55,4 +56,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
