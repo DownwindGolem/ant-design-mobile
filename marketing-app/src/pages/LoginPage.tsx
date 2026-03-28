@@ -81,18 +81,24 @@ export default function LoginPage() {
 
           <Form.Item
             name="password"
-            label="Password"
+            label={
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                Password
+                <span
+                  className="eye-toggle"
+                  onClick={() => setVisible((v) => !v)}
+                  style={{ marginLeft: 4 }}
+                >
+                  {visible ? <EyeOutline /> : <EyeInvisibleOutline />}
+                </span>
+              </span>
+            }
             rules={[{ required: true, message: 'Password is required' }]}
           >
             <Input
               placeholder="Enter your password"
               type={visible ? 'text' : 'password'}
               autoComplete="current-password"
-              suffix={
-                <div onClick={() => setVisible(!visible)} className="eye-toggle">
-                  {visible ? <EyeOutline /> : <EyeInvisibleOutline />}
-                </div>
-              }
             />
           </Form.Item>
         </Form>
